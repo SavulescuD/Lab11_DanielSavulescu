@@ -10,11 +10,11 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lab10restaurant_danielsavulescu.lab10restaurant_danielsavulescu.OrderController">
    <children>
@@ -41,8 +41,8 @@
           </Menu>
         </menus>
       </MenuBar>
-      <ListView fx:id="entreeSelection" fixedCellSize="2.0" layoutX="14.0" layoutY="30.0" prefHeight="200.0" prefWidth="200.0" />
-      <CheckBox layoutX="14.0" layoutY="247.0" mnemonicParsing="false" text="Request Free Water" />
+      <ListView fx:id="entreeSelection" fixedCellSize="25.0" layoutX="17.0" layoutY="52.0" prefHeight="134.0" prefWidth="200.0" />
+      <CheckBox fx:id="freeWater" layoutX="14.0" layoutY="247.0" mnemonicParsing="false" text="Request Free Water" />
       <Label layoutX="14.0" layoutY="283.0" prefHeight="17.0" prefWidth="125.0" text="Special Requests">
          <font>
             <Font name="System Bold" size="12.0" />
@@ -55,16 +55,19 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <RadioButton fx:id="coffee" mnemonicParsing="false" text="Coffee" />
-            <RadioButton fx:id="tea" mnemonicParsing="false" text="Tea" />
-            <RadioButton fx:id="soda" mnemonicParsing="false" text="Soda" />
-            <RadioButton fx:id="juice" mnemonicParsing="false" text="Juice" />
+            <RadioButton fx:id="coffee" mnemonicParsing="false" text="Coffee">
+               <toggleGroup>
+                  <ToggleGroup fx:id="drinks" />
+               </toggleGroup></RadioButton>
+            <RadioButton fx:id="tea" mnemonicParsing="false" text="Tea" toggleGroup="$drinks" />
+            <RadioButton fx:id="soda" mnemonicParsing="false" text="Soda" toggleGroup="$drinks" />
+            <RadioButton fx:id="juice" mnemonicParsing="false" text="Juice" toggleGroup="$drinks" />
          </children>
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
       </VBox>
-      <TextField layoutX="14.0" layoutY="313.0" prefHeight="25.0" prefWidth="531.0" />
+      <TextField fx:id="specialRequests" layoutX="14.0" layoutY="313.0" prefHeight="25.0" prefWidth="531.0" />
       <VBox layoutX="14.0" layoutY="375.0" prefHeight="45.0" prefWidth="100.0">
          <children>
             <Label text="Current Order:">
@@ -72,7 +75,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label text="Total: $0.00">
+            <Label fx:id="totalOrder" text="Total: $0.00">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -85,5 +88,10 @@
             <Button mnemonicParsing="false" onAction="#clearOrder" prefHeight="35.0" prefWidth="100.0" text="Clear Order" />
          </children>
       </HBox>
+      <Label alignment="TOP_CENTER" layoutX="70.0" layoutY="27.0" prefHeight="25.0" prefWidth="94.0" text="Entree Selection">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
    </children>
 </Pane>
