@@ -3,6 +3,6 @@ module lab10restaurant_danielsavulescu.lab10restaurant_danielsavulescu {
     requires javafx.fxml;
     requires java.base;
 
-    opens lab10restaurant_danielsavulescu.lab10restaurant_danielsavulescu to javafx.fxml;
-    exports lab10restaurant_danielsavulescu.lab10restaurant_danielsavulescu;
+    opens lab11_danielsavulescu.lab11_danielsavulescu to javafx.fxml;
+    exports lab11_danielsavulescu.lab11_danielsavulescu;
 }
